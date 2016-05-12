@@ -4,13 +4,13 @@ public class Article {
 	
 	// Attributs
 	private String reference;
-	private Double prixHT;
+	private Prix prixHT;
 	private String designation;
 	private int qteStock;
 	
 		
 	// Constructeur Article
-	public Article(String reference, Double prixHT, String designation, int qteStock) {
+	public Article(String reference, Prix prixHT, String designation, int qteStock) {
 		super();
 		this.reference = reference;
 		this.prixHT = prixHT;
@@ -21,12 +21,13 @@ public class Article {
 
 	// Méthodes
 	public Double getPrixHT() {
-		return prixHT;
+		return prixHT.getPrix();
 	}
 
 
-	public void setPrixHT(Double prixHT) {
+	public void setPrixHT(Prix prixHT) {
 		this.prixHT = prixHT;
+		
 	}
 
 
