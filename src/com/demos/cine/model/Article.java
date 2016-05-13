@@ -7,8 +7,10 @@ public class Article {
 	private Double prixHT;
 	private String designation;
 	private int qteStock;
+	private String type;
 	
-		
+	
+
 	// Constructeur Article
 	public Article(String reference, Double prixHT, String designation, int qteStock) {
 		super();
@@ -43,6 +45,17 @@ public class Article {
 	public int getQteStock() {
 		return qteStock;
 	}
+	
+	
+	public String getType() {
+		return type;
+	}
+
+	
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	
 		// arrivage de stock
 	public void incrementStock(int qte){
