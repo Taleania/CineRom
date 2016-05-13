@@ -13,8 +13,7 @@ public class Panier {
 		contenu.add(lp);		
 	}
 
-
-
+	
 	public double getPrixTotalHT(){
 		double prixTotalHT=0;
 		for(LignePanier lp:contenu){
