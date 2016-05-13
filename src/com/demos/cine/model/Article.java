@@ -7,18 +7,31 @@ public class Article {
 	private Double prixHT;
 	private String designation;
 	private int qteStock;
+	private boolean dematerialise;
 	
-		
-	// Constructeur Article
+
+	// Constructeur Article avec stock que l'on considère pas dématérialisé
 	public Article(String reference, Double prixHT, String designation, int qteStock) {
 		super();
 		this.reference = reference;
 		this.prixHT = prixHT;
 		this.designation = designation;
 		this.qteStock = qteStock;
+		this.dematerialise=false;
 	}
-
-
+	
+	
+	// Constructeur Article sans stock que l'on considère dématérialisé (objet dématérialisé)
+	public Article(String reference, Double prixHT, String designation) {
+		super();
+		this.reference = reference;
+		this.prixHT = prixHT;
+		this.designation = designation;
+		this.qteStock = 0;
+		this.dematerialise=true;
+	}
+	
+	
 	// Méthodes
 	public Double getPrixHT() {
 		return prixHT;
@@ -44,6 +57,17 @@ public class Article {
 		return qteStock;
 	}
 	
+	// Est-ce que l'article est dématérialisé ?		
+	public boolean isDematerialise() {
+		return dematerialise;
+	}
+	
+	
+	public void setDematerialise(boolean dematerialise) {
+		this.dematerialise = dematerialise;
+	}
+		
+	
 		// arrivage de stock
 	public void incrementStock(int qte){
 		qteStock=qteStock+qte;
@@ -56,9 +80,22 @@ public class Article {
 
 
 	@Override
-	public String toString() {
-		return "Article [reference=" + reference + ", prixHT=" + prixHT + ", designation=" + designation + ", qteStock="
-				+ qteStock + "]";
+	public String toString(){
+		String description = " ";
+		if (!isDematerialise()){ 
+			description = "reference=" + reference + 
+				", prixHT=" + prixHT + 
+				", designation=" + designation + 
+				", qteStock="
+				+ qteStock;
+			}
+		else{
+			description = "reference=" + reference + 
+					", prixHT=" + prixHT + 
+					", designation=" + designation + 
+					", objet dématérialisé";			
+		}
+		return description;
 	}
 	
 	
